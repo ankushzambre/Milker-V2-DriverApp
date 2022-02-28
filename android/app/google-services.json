@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "312478050197",
+    "firebase_url": "https://milkers-v2-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "milkers-v2",
+    "storage_bucket": "milkers-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312478050197:android:9ea4b61208c272fc5f389c",
+        "android_client_info": {
+          "package_name": "com.milkerdriver.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312478050197-olpicsg05q1bf7uivr8b64umuna04o07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzbusmuQncgvswJEjnqZ24Yrj5QY4qv74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312478050197-olpicsg05q1bf7uivr8b64umuna04o07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
