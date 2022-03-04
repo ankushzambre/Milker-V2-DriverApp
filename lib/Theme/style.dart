@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 Color disabledColor = Color(0xff747474);
 Color scaffoldBackgroundColor = Colors.white;
-Color primaryColor = Color(0xFF39c526);
+// Color primaryColor = Color(0xFF39c526);
+Color primaryColor = Color(0xFFb43427);
 
 //app theme
 final ThemeData appTheme = ThemeData(
@@ -30,8 +31,10 @@ final ThemeData appTheme = ThemeData(
     subtitle1: TextStyle(),
     subtitle2: TextStyle(color: disabledColor),
     headline3: TextStyle(),
-    headline4: TextStyle(color: scaffoldBackgroundColor, fontWeight: FontWeight.bold),
-    headline5: TextStyle(color: scaffoldBackgroundColor, fontWeight: FontWeight.bold),
+    headline4:
+        TextStyle(color: scaffoldBackgroundColor, fontWeight: FontWeight.bold),
+    headline5:
+        TextStyle(color: scaffoldBackgroundColor, fontWeight: FontWeight.bold),
     headline6: TextStyle(color: disabledColor),
     caption: TextStyle(),
     overline: TextStyle(),

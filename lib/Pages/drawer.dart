@@ -47,12 +47,13 @@ class AccountDrawer extends StatelessWidget {
     return Drawer(
       child: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(
-            'assets/menubg.png',
-          ),
-          fit: BoxFit.cover,
-        )),
+            //     image: DecorationImage(
+            //   image: AssetImage(
+            //     'assets/menubg.png',
+            //   ),
+            //   fit: BoxFit.cover,
+            // )
+            color: Theme.of(context).primaryColor),
         child: Column(
           children: [
             SizedBox(
@@ -67,7 +68,12 @@ class AccountDrawer extends StatelessWidget {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       hitAppInfo();
                     }
-                    return Text((snapshot.hasData != null) ? locale.hey + ', ' + '${snapshot.data}' : '${locale.hey}\, User', textAlign: TextAlign.start, style: Theme.of(context).textTheme.headline5);
+                    return Text(
+                        (snapshot.hasData != null)
+                            ? locale.hey + ', ' + '${snapshot.data}'
+                            : '${locale.hey}\, User',
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.headline5);
                   },
                   future: getSharedValue(),
                 ),
@@ -77,21 +83,65 @@ class AccountDrawer extends StatelessWidget {
               child: ListView(
                 physics: BouncingScrollPhysics(),
                 children: [
-                  buildListTile(context, Icons.home, locale.home, () => Navigator.popAndPushNamed(context, PageRoutes.homePage)),
+                  buildListTile(
+                      context,
+                      Icons.home,
+                      locale.home,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.homePage)),
                   // buildListTile(
                   //     context,
                   //     Icons.account_balance_wallet,
                   //     locale.wallet,
                   //         () =>
                   //         Navigator.popAndPushNamed(context, PageRoutes.walletPage)),
-                  buildListTile(context, Icons.account_box, locale.myAccount, () => Navigator.popAndPushNamed(context, PageRoutes.editProfilePage)),
-                  buildListTile(context, Icons.insert_chart, locale.insight, () => Navigator.popAndPushNamed(context, PageRoutes.insightPage)),
-                  buildListTile(context, Icons.food_bank_sharp, locale.sendToBank, () => Navigator.popAndPushNamed(context, PageRoutes.addToBank)),
-                  buildListTile(context, Icons.notifications_active, locale.notifications, () => Navigator.popAndPushNamed(context, PageRoutes.notificationList)),
-                  buildListTile(context, Icons.view_list, locale.aboutUs, () => Navigator.popAndPushNamed(context, PageRoutes.aboutus)),
-                  buildListTile(context, Icons.admin_panel_settings_rounded, locale.tnc, () => Navigator.popAndPushNamed(context, PageRoutes.tnc)),
-                  buildListTile(context, Icons.chat, locale.helpCenter, () => Navigator.popAndPushNamed(context, PageRoutes.contactUs)),
-                  buildListTile(context, Icons.language, locale.language, () => Navigator.popAndPushNamed(context, PageRoutes.languagePage)),
+                  buildListTile(
+                      context,
+                      Icons.account_box,
+                      locale.myAccount,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.editProfilePage)),
+                  buildListTile(
+                      context,
+                      Icons.insert_chart,
+                      locale.insight,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.insightPage)),
+                  buildListTile(
+                      context,
+                      Icons.food_bank_sharp,
+                      locale.sendToBank,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.addToBank)),
+                  buildListTile(
+                      context,
+                      Icons.notifications_active,
+                      locale.notifications,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.notificationList)),
+                  buildListTile(
+                      context,
+                      Icons.view_list,
+                      locale.aboutUs,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.aboutus)),
+                  buildListTile(
+                      context,
+                      Icons.admin_panel_settings_rounded,
+                      locale.tnc,
+                      () => Navigator.popAndPushNamed(context, PageRoutes.tnc)),
+                  buildListTile(
+                      context,
+                      Icons.chat,
+                      locale.helpCenter,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.contactUs)),
+                  buildListTile(
+                      context,
+                      Icons.language,
+                      locale.language,
+                      () => Navigator.popAndPushNamed(
+                          context, PageRoutes.languagePage)),
                   LogoutTile(),
                 ],
               ),
@@ -102,12 +152,17 @@ class AccountDrawer extends StatelessWidget {
     );
   }
 
-  ListTile buildListTile(BuildContext context, IconData icon, String text, Function onTap) {
+  ListTile buildListTile(
+      BuildContext context, IconData icon, String text, Function onTap) {
     var theme = Theme.of(context);
 
     return ListTile(
-      leading: Icon(icon, color: theme.primaryColor),
-      title: Text(text.toUpperCase(), style: theme.textTheme.headline6.copyWith(fontSize: 18, letterSpacing: 0.8).copyWith(color: theme.scaffoldBackgroundColor)),
+      // leading: Icon(icon, color: theme.primaryColor),
+      leading: Icon(icon, color: theme.bottomAppBarColor),
+      title: Text(text.toUpperCase(),
+          style: theme.textTheme.headline6
+              .copyWith(fontSize: 18, letterSpacing: 0.8)
+              .copyWith(color: theme.scaffoldBackgroundColor)),
       onTap: onTap,
     );
   }
@@ -119,8 +174,12 @@ class LogoutTile extends StatelessWidget {
     var locale = AppLocalizations.of(context);
     var theme = Theme.of(context);
     return ListTile(
-      leading: Icon(Icons.exit_to_app, color: theme.primaryColor),
-      title: Text(locale.logout.toUpperCase(), style: theme.textTheme.headline6.copyWith(fontSize: 18, letterSpacing: 0.8).copyWith(color: theme.scaffoldBackgroundColor)),
+      // leading: Icon(Icons.exit_to_app, color: theme.primaryColor),
+      leading: Icon(Icons.exit_to_app, color: theme.bottomAppBarColor),
+      title: Text(locale.logout.toUpperCase(),
+          style: theme.textTheme.headline6
+              .copyWith(fontSize: 18, letterSpacing: 0.8)
+              .copyWith(color: theme.scaffoldBackgroundColor)),
       onTap: () {
         showDialog(
             context: context,
@@ -132,10 +191,14 @@ class LogoutTile extends StatelessWidget {
                 actions: <Widget>[
                   ElevatedButton(
                     style: ButtonStyle(
-                      shadowColor: MaterialStateProperty.all(Colors.transparent),
-                      overlayColor: MaterialStateProperty.all(Colors.transparent),
-                      backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                      foregroundColor: MaterialStateProperty.all(Colors.transparent),
+                      shadowColor:
+                          MaterialStateProperty.all(Colors.transparent),
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.transparent),
+                      foregroundColor:
+                          MaterialStateProperty.all(Colors.transparent),
                     ),
                     child: Text(
                       'No',
@@ -147,10 +210,14 @@ class LogoutTile extends StatelessWidget {
                   ),
                   ElevatedButton(
                       style: ButtonStyle(
-                        shadowColor: MaterialStateProperty.all(Colors.transparent),
-                        overlayColor: MaterialStateProperty.all(Colors.transparent),
-                        backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                        foregroundColor: MaterialStateProperty.all(Colors.transparent),
+                        shadowColor:
+                            MaterialStateProperty.all(Colors.transparent),
+                        overlayColor:
+                            MaterialStateProperty.all(Colors.transparent),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.transparent),
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.transparent),
                       ),
                       child: Text(
                         'Yes',
@@ -159,10 +226,12 @@ class LogoutTile extends StatelessWidget {
                       // shape: RoundedRectangleBorder(side: BorderSide(color: Colors.transparent)),
                       // textColor: kMainColor,
                       onPressed: () async {
-                        SharedPreferences pref = await SharedPreferences.getInstance();
+                        SharedPreferences pref =
+                            await SharedPreferences.getInstance();
                         pref.clear().then((value) {
                           if (value) {
-                            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
+                            Navigator.pushAndRemoveUntil(context,
+                                MaterialPageRoute(builder: (context) {
                               return DeliveryBoyLogin();
                             }), (Route<dynamic> route) => false);
                           }

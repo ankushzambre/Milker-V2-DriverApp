@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Color kMainColor = Color(0xff002e2b);
+//Color kMainColor = Color(0xff002e2b);
+Color kMainColor = Color(0xFFb43427);
 Color kDisabledColor = Color(0xff616161);
 Color kTextColor = Color(0xfffff9e9);
 Color kWhiteColor = Colors.white;
